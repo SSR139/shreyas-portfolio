@@ -721,34 +721,30 @@
     <section id="certifications" class="certifications">
 
         <div class="section-title">
-
             <p>ACHIEVEMENTS</p>
-
             <h2>Certifications</h2>
-
         </div>
 
         <div class="cert-grid">
 
-            <div class="cert-card">
+            <!-- AWS CERT -->
+            <div class="cert-card" onclick="openCert('aws')">
 
                 <h3>AWS Certified Solutions Architect – Associate</h3>
-
                 <p>Amazon Web Services</p>
 
             </div>
 
-            <div class="cert-card">
+            <!-- ORACLE CERT -->
+            <div class="cert-card" onclick="openCert('oracle')">
 
                 <h3>Oracle Cloud Infrastructure Architect – Associate</h3>
-
                 <p>Oracle</p>
 
             </div>
 
         </div>
-
-    </section>
+    </section>  
 
     <!-- ======================= -->
     <!-- Education -->
@@ -872,7 +868,14 @@
     <!-- ======================= -->
 
     <script src="JS/script.js"></script>
+<!-- CERTIFICATE MODAL -->
+    <div id="certModal" class="modal">
 
+        <span class="close" onclick="closeCert()">&times;</span>
+
+        <img id="certImage" class="modal-content" />
+
+    </div>
 </body>
 
 </html>
