@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // =========================
-// CERTIFICATE MODAL (GLOBAL)
+// CERTIFICATE MODAL
 // =========================
 
 function openCert(type) {
@@ -113,7 +113,6 @@ function closeCert() {
     if (modal) modal.style.display = "none";
 }
 
-// close modal when clicking outside image
 window.addEventListener("click", function (e) {
 
     const modal = document.getElementById("certModal");
@@ -121,4 +120,56 @@ window.addEventListener("click", function (e) {
     if (modal && e.target === modal) {
         modal.style.display = "none";
     }
+});
+
+
+// =========================
+// CONTACT FORM → GOOGLE SHEETS
+// =========================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.querySelector(".contact-form");
+
+    if (!form) return;
+
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwbLx2MyCS4IpgMeKVMw0OVY5Wy9_LqH9hpYteGlh62QL540TQ2SKtm1AWWrA2IjGht/exec";
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = form.querySelector("input[type='text']").value.trim();
+        const email = form.querySelector("input[type='email']").value.trim();
+        const message = form.querySelector("textarea").value.trim();
+
+        if (!name || !email || !message) {
+            alert("Please fill all fields");
+            return;
+        }
+
+        const data = {
+            name,
+            email,
+            message
+        };
+
+        try {
+            await fetch(SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            alert("✅ Message sent successfully!");
+            form.reset();
+
+        } catch (error) {
+            console.error("Error:", error);
+            alert("❌ Failed to send message");
+        }
+    });
+
 });
