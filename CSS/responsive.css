@@ -1,0 +1,98 @@
+
+/* ========================= */
+/* TABLET DEVICES */
+/* ========================= */
+
+@media (max-width: 1024px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+}
+
+/* ========================= */
+/* MOBILE DEVICES */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .about-info {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .profile-card {
+        width: 100%;
+    }
+
+}
+
+/* ========================= */
+/* SMALL MOBILE DEVICES */
+/* ========================= */
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .section-title h2 {
+        font-size: 24px;
+    }
+
+    .resume-btn {
+        display: none;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+}
