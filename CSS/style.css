@@ -408,6 +408,24 @@ body {
 .contact-form button:hover {
     transform: scale(1.05);
 }
+#form-status{
+    margin-top:15px;
+    font-weight:600;
+    text-align:center;
+}
+
+#form-status.success{
+    color:#22c55e;
+}
+
+#form-status.error{
+    color:#ef4444;
+}
+
+.contact-form button:disabled{
+    background:#888;
+    cursor:not-allowed;
+}
 
 /* ========================= */
 /* FOOTER */
