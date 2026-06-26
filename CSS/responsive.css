@@ -1,6 +1,5 @@
-
 /* ========================= */
-/* TABLET DEVICES */
+/* TABLET DEVICES (1024px) */
 /* ========================= */
 
 @media (max-width: 1024px) {
@@ -8,31 +7,51 @@
     .hero {
         flex-direction: column;
         text-align: center;
-        gap: 40px;
+        gap: 30px;
+        padding: 120px 6% 60px;
     }
 
-    .about-container {
-        flex-direction: column;
+    .hero h1 {
+        font-size: 42px;
     }
 
+    .hero-description {
+        margin: 0 auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .about-container,
     .contact-container {
         flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-info {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .nav-links {
-        display: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
     }
-
 }
 
 /* ========================= */
-/* MOBILE DEVICES */
+/* MOBILE DEVICES (768px) */
 /* ========================= */
 
 @media (max-width: 768px) {
 
+    .hero {
+        padding: 100px 5% 50px;
+    }
+
     .hero h1 {
-        font-size: 36px;
+        font-size: 34px;
     }
 
     .hero h2 {
@@ -45,20 +64,15 @@
 
     .hero-buttons {
         flex-direction: column;
+        gap: 12px;
     }
 
     .about-info {
         grid-template-columns: 1fr;
     }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-
+    .skills-grid,
+    .project-grid,
     .cert-grid {
         grid-template-columns: 1fr;
     }
@@ -68,31 +82,49 @@
     }
 
     .profile-card {
-        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
     }
 
+    /* mobile menu hidden (future hamburger support) */
+    .nav-links {
+        display: none;
+    }
 }
 
 /* ========================= */
-/* SMALL MOBILE DEVICES */
+/* SMALL MOBILE DEVICES (480px) */
 /* ========================= */
 
 @media (max-width: 480px) {
 
     .hero h1 {
-        font-size: 28px;
+        font-size: 26px;
+    }
+
+    .hero h2 {
+        font-size: 16px;
+    }
+
+    .hero-description {
+        font-size: 13px;
     }
 
     .section-title h2 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .resume-btn {
-        display: none;
+        padding: 8px 12px;
+        font-size: 12px;
     }
 
     .social-icons {
         justify-content: center;
     }
 
+    .hero-buttons a {
+        width: 100%;
+        text-align: center;
+    }
 }
