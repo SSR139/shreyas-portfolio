@@ -1,5 +1,5 @@
 /* ========================= */
-/* TABLET DEVICES (1024px) */
+/* TABLET DEVICES */
 /* ========================= */
 
 @media (max-width: 1024px) {
@@ -15,33 +15,22 @@
         font-size: 42px;
     }
 
-    .hero-description {
-        margin: 0 auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
     .about-container,
     .contact-container {
         flex-direction: column;
-        gap: 30px;
     }
 
-    .about-info {
-        grid-template-columns: repeat(2, 1fr);
+    .project-grid {
+        grid-template-columns: 1fr;
     }
 
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+    .project-image {
+        height: 300px;
     }
 }
 
 /* ========================= */
-/* MOBILE DEVICES (768px) */
+/* MOBILE */
 /* ========================= */
 
 @media (max-width: 768px) {
@@ -54,21 +43,8 @@
         font-size: 34px;
     }
 
-    .hero h2 {
-        font-size: 18px;
-    }
-
-    .hero-description {
-        font-size: 14px;
-    }
-
     .hero-buttons {
         flex-direction: column;
-        gap: 12px;
-    }
-
-    .about-info {
-        grid-template-columns: 1fr;
     }
 
     .skills-grid,
@@ -77,23 +53,17 @@
         grid-template-columns: 1fr;
     }
 
-    .navbar {
-        padding: 15px 5%;
+    .project-image {
+        height: 250px;
     }
 
-    .profile-card {
-        max-width: 320px;
-        margin: 0 auto;
-    }
-
-    /* mobile menu hidden (future hamburger support) */
     .nav-links {
         display: none;
     }
 }
 
 /* ========================= */
-/* SMALL MOBILE DEVICES (480px) */
+/* SMALL MOBILE */
 /* ========================= */
 
 @media (max-width: 480px) {
@@ -102,29 +72,15 @@
         font-size: 26px;
     }
 
-    .hero h2 {
-        font-size: 16px;
+    .project-image {
+        height: 200px;
     }
 
-    .hero-description {
-        font-size: 13px;
+    .project-card h3 {
+        font-size: 18px;
     }
 
-    .section-title h2 {
-        font-size: 22px;
-    }
-
-    .resume-btn {
-        padding: 8px 12px;
-        font-size: 12px;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-
-    .hero-buttons a {
-        width: 100%;
-        text-align: center;
+    .project-card p {
+        font-size: 14px;
     }
 }

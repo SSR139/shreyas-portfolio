@@ -1,35 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // =========================
-    // NAV LINKS SMOOTH SCROLL
+    // NAVIGATION SMOOTH SCROLL
     // =========================
 
     const navLinks = document.querySelectorAll(".nav-links a");
     const sections = document.querySelectorAll("section");
 
     navLinks.forEach(link => {
-        link.addEventListener("click", function (e) {
+
+        link.addEventListener("click", (e) => {
+
             e.preventDefault();
 
-            const targetId = this.getAttribute("href");
+            const targetId = link.getAttribute("href");
             const targetSection = document.querySelector(targetId);
 
             if (targetSection) {
+
                 window.scrollTo({
                     top: targetSection.offsetTop - 70,
                     behavior: "smooth"
                 });
+
             }
+
         });
+
     });
 
     // =========================
-    // ACTIVE NAV ON SCROLL
+    // ACTIVE NAVIGATION
     // =========================
 
     function updateActiveNav() {
 
-        let scrollPos = window.scrollY + 120;
+        let scrollPos = window.scrollY + 150;
 
         sections.forEach(section => {
 
@@ -38,7 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (scrollPos >= top && scrollPos < bottom) {
 
-                navLinks.forEach(link => link.classList.remove("active"));
+                navLinks.forEach(link =>
+                    link.classList.remove("active")
+                );
 
                 const activeLink = document.querySelector(
                     `.nav-links a[href="#${section.id}"]`
@@ -47,11 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (activeLink) {
                     activeLink.classList.add("active");
                 }
+
             }
+
         });
+
     }
 
-    window.addEventListener("scroll", updateActiveNav, { passive: true });
+    window.addEventListener("scroll", updateActiveNav, {
+        passive: true
+    });
 
     updateActiveNav();
 
@@ -67,21 +80,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const triggerBottom = window.innerHeight * 0.85;
 
-        revealElements.forEach(el => {
+        revealElements.forEach(element => {
 
-            const elementTop = el.getBoundingClientRect().top;
+            const elementTop =
+                element.getBoundingClientRect().top;
 
             if (elementTop < triggerBottom) {
-                el.classList.add("show");
+                element.classList.add("show");
             }
 
         });
 
     }
 
-    window.addEventListener("scroll", revealOnScroll, { passive: true });
+    window.addEventListener("scroll", revealOnScroll, {
+        passive: true
+    });
 
     revealOnScroll();
+
+    // =========================
+    // PROJECT IMAGE CLICK
+    // =========================
+
+    const projectImages =
+        document.querySelectorAll(".project-image");
+
+    projectImages.forEach(image => {
+
+        image.style.cursor = "pointer";
+
+        image.addEventListener("click", () => {
+
+            window.open(image.src, "_blank");
+
+        });
+
+    });
 
 });
 
@@ -109,67 +144,110 @@ function openCert(type) {
 }
 
 function closeCert() {
-    const modal = document.getElementById("certModal");
-    if (modal) modal.style.display = "none";
+
+    const modal =
+        document.getElementById("certModal");
+
+    if (modal) {
+        modal.style.display = "none";
+    }
+
 }
 
-window.addEventListener("click", function (e) {
+window.addEventListener("click", (e) => {
 
-    const modal = document.getElementById("certModal");
+    const modal =
+        document.getElementById("certModal");
 
     if (modal && e.target === modal) {
         modal.style.display = "none";
     }
+
 });
 
 
 // =========================
-// CONTACT FORM → GOOGLE SHEETS
+// CONTACT FORM
 // =========================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const form = document.querySelector(".contact-form");
+    const form =
+        document.querySelector(".contact-form");
 
     if (!form) return;
 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwbLx2MyCS4IpgMeKVMw0OVY5Wy9_LqH9hpYteGlh62QL540TQ2SKtm1AWWrA2IjGht/exec";
+    const SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbwbLx2MyCS4IpgMeKVMw0OVY5Wy9_LqH9hpYteGlh62QL540TQ2SKtm1AWWrA2IjGht/exec";
 
     form.addEventListener("submit", async (e) => {
+
         e.preventDefault();
 
-        const name = form.querySelector("input[type='text']").value.trim();
-        const email = form.querySelector("input[type='email']").value.trim();
-        const message = form.querySelector("textarea").value.trim();
+        const name =
+            form.querySelector("input[type='text']").value.trim();
+
+        const email =
+            form.querySelector("input[type='email']").value.trim();
+
+        const message =
+            form.querySelector("textarea").value.trim();
+
+        const status =
+            document.getElementById("form-status");
 
         if (!name || !email || !message) {
-            alert("Please fill all fields");
+
+            if (status) {
+
+                status.textContent =
+                    "Please fill all fields.";
+
+                status.className = "error";
+            }
+
             return;
         }
 
-        const data = {
-            name,
-            email,
-            message
-        };
-
         try {
+
             await fetch(SCRIPT_URL, {
                 method: "POST",
                 mode: "no-cors",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify({
+                    name,
+                    email,
+                    message
+                })
             });
 
-            alert("✅ Message sent successfully!");
+            if (status) {
+
+                status.textContent =
+                    "✅ Message sent successfully!";
+
+                status.className = "success";
+            }
+
             form.reset();
 
         } catch (error) {
-            console.error("Error:", error);
-            alert("❌ Failed to send message");
+
+            console.error(error);
+
+            if (status) {
+
+                status.textContent =
+                    "❌ Failed to send message.";
+
+                status.className = "error";
+            }
+
         }
+
     });
 
 });
