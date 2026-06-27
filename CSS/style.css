@@ -617,3 +617,221 @@ body {
     color: var(--primary);
     font-weight: 600;
 }
+/* ===================================== */
+/* NAVBAR SCROLL EFFECT */
+/* ===================================== */
+
+.navbar.scrolled {
+background: rgba(11, 17, 32, 0.95);
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* ===================================== */
+/* SOCIAL ICONS */
+/* ===================================== */
+
+.social-icons {
+margin-top: 25px;
+display: flex;
+gap: 20px;
+}
+
+.social-icons a {
+color: var(--text);
+font-size: 22px;
+transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+color: var(--primary);
+transform: translateY(-4px);
+}
+
+/* ===================================== */
+/* STATS SECTION */
+/* ===================================== */
+
+.stats {
+padding: 50px 8%;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 20px;
+}
+
+.stat-card {
+background: var(--card);
+padding: 25px;
+border-radius: 14px;
+text-align: center;
+box-shadow: 0 10px 25px rgba(0,0,0,.25);
+transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+transform: translateY(-8px);
+box-shadow:
+0 15px 35px rgba(0,0,0,.35),
+0 0 20px rgba(255,153,0,.12);
+}
+
+.stat-card h3 {
+color: var(--primary);
+font-size: 32px;
+margin-bottom: 10px;
+}
+
+.stat-card p {
+color: var(--muted);
+}
+
+/* ===================================== */
+/* CERTIFICATIONS */
+/* ===================================== */
+
+.certifications {
+padding: 80px 8%;
+}
+
+.cert-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 25px;
+margin-top: 50px;
+}
+
+.cert-card {
+background: var(--card);
+padding: 30px;
+border-radius: 16px;
+cursor: pointer;
+transition: all 0.3s ease;
+border: 1px solid rgba(255,255,255,0.05);
+box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+
+.cert-card:hover {
+transform: translateY(-8px);
+border-color: rgba(255,153,0,.3);
+box-shadow:
+0 15px 35px rgba(0,0,0,.35),
+0 0 20px rgba(255,153,0,.15);
+}
+
+.cert-card h3 {
+color: white;
+font-size: 22px;
+margin-bottom: 10px;
+}
+
+.cert-card p {
+color: var(--muted);
+}
+
+.cert-card::after {
+content: "View Certificate →";
+display: block;
+margin-top: 20px;
+color: var(--primary);
+font-weight: 600;
+}
+
+/* ===================================== */
+/* PROFILE CARD IMPROVEMENTS */
+/* ===================================== */
+
+.profile-card {
+max-width: 350px;
+width: 100%;
+}
+
+.profile-card img {
+display: block;
+margin: 0 auto 15px;
+}
+
+/* ===================================== */
+/* PROJECT BUTTONS */
+/* ===================================== */
+
+.project-buttons {
+display: flex;
+justify-content: center;
+gap: 12px;
+margin-top: 20px;
+flex-wrap: wrap;
+}
+
+/* ===================================== */
+/* SECTION OFFSET */
+/* ===================================== */
+
+section {
+scroll-margin-top: 100px;
+}
+
+/* ===================================== */
+/* MODAL */
+/* ===================================== */
+
+.modal-content {
+max-width: 90%;
+max-height: 85vh;
+object-fit: contain;
+}
+
+/* ===================================== */
+/* SCROLL TO TOP BUTTON */
+/* ===================================== */
+
+#topBtn {
+position: fixed;
+right: 20px;
+bottom: 20px;
+width: 45px;
+height: 45px;
+border: none;
+border-radius: 50%;
+background: var(--primary);
+color: black;
+font-size: 18px;
+font-weight: bold;
+cursor: pointer;
+display: none;
+z-index: 999;
+transition: all 0.3s ease;
+}
+
+#topBtn:hover {
+transform: translateY(-4px);
+}
+
+/* ===================================== */
+/* INFO CARD ICONS */
+/* ===================================== */
+
+.info-card i {
+color: var(--primary);
+font-size: 26px;
+margin-bottom: 12px;
+}
+
+/* ===================================== */
+/* SKILL CARD ICONS */
+/* ===================================== */
+
+.skill-card i {
+font-size: 40px;
+color: var(--primary);
+margin-bottom: 15px;
+}
+
+/* ===================================== */
+/* FOOTER */
+/* ===================================== */
+
+.footer {
+text-align: center;
+padding: 30px;
+background: #111827;
+color: var(--muted);
+}
